@@ -1,0 +1,27 @@
+//pluginManagement {
+//    repositories {
+//        gradlePluginPortal()
+//        google()
+//        mavenCentral()
+//    }
+//}
+//
+//dependencyResolutionManagement {
+//    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+//    repositories {
+//        google()
+//        mavenCentral()
+//        maven { url "https://jitpack.io" }
+//        maven {
+//            url "http://3.252.206.134:8081/artifactory/metric-sdk-sdk"
+//            allowInsecureProtocol = true
+//            credentials {
+//                username = artifactoryUser
+//                password = artifactoryPassword
+//            }
+//        }
+//    }
+//}
+//
+
+rootProject.name = 'metric_sdk'
