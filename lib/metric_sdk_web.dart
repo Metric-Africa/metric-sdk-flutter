@@ -19,14 +19,11 @@ class MetricSdkWeb extends MetricSdkPlatform {
   }
 
   /// Returns a [String] containing the version of the platform.
-  @override
   Future<String?> getPlatformVersion() async {
     final version = web.window.navigator.userAgent;
     return version;
   }
 
   @override
-  void initializeSdk(SdkSettings settings) {
-    // TODO: implement initSdkSettings
-  }
+  void initializeSdk(SdkSettings settings) {}
 }
