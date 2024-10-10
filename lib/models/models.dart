@@ -1,15 +1,25 @@
-import 'dart:ui';
+enum Environment {
+  dev, prod
+}
 
 class AppTheme {
   String appName;
-  String logoUrl;
-  Color primaryColor;
+  String brandLogoUrl;
+  String brandPrimaryColor;
 
   AppTheme({
     required this.appName,
-    required this.logoUrl,
-    required this.primaryColor
+    required this.brandLogoUrl,
+    required this.brandPrimaryColor
   });
+
+  Map<String, dynamic> get map {
+    return {
+      'appName': appName,
+      'brandLogoUrl': brandLogoUrl,
+      'brandPrimaryColor': brandPrimaryColor
+    };
+  }
 }
 
 class ClientAuthenticator {
@@ -20,10 +30,13 @@ class ClientAuthenticator {
     required this.secretKey,
     required this.clientKey,
   });
-}
 
-enum Environment {
-  dev, prod
+  Map<String, dynamic> get map {
+    return {
+      'secretKey': secretKey,
+      'clientKey': clientKey
+    };
+  }
 }
 
 class SdkSettings {
@@ -36,4 +49,12 @@ class SdkSettings {
     required this.authenticator,
     required this.environment
   });
+
+  Map<String, dynamic> get map {
+    return {
+      'appTheme': appTheme.map,
+      'authenticator': authenticator.map,
+      'environment': environment.toString()
+    };
+  }
 }

@@ -1,0 +1,56 @@
+PODS:
+  - Flutter (1.0.0)
+  - integration_test (0.0.1):
+    - Flutter
+  - iProov (10.3.3)
+  - metric_sdk (0.0.1):
+    - Flutter
+    - MetricSDK (= 1.0.505)
+  - MetricSDK (1.0.505):
+    - iProov (~> 10.3.1)
+    - OpenSSL-Universal (~> 1.1.2200)
+    - OZLivenessSDK (~> 8.7.0)
+  - OpenSSL-Universal (1.1.2301)
+  - OZLivenessSDK (8.7.0):
+    - OZLivenessSDK/Full (= 8.7.0)
+    - TensorFlowLiteC (= 2.11.0)
+  - OZLivenessSDK/Full (8.7.0):
+    - TensorFlowLiteC (= 2.11.0)
+  - TensorFlowLiteC (2.11.0):
+    - TensorFlowLiteC/Core (= 2.11.0)
+  - TensorFlowLiteC/Core (2.11.0)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - integration_test (from `.symlinks/plugins/integration_test/ios`)
+  - metric_sdk (from `.symlinks/plugins/metric_sdk/ios`)
+
+SPEC REPOS:
+  trunk:
+    - iProov
+    - MetricSDK
+    - OpenSSL-Universal
+    - OZLivenessSDK
+    - TensorFlowLiteC
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  integration_test:
+    :path: ".symlinks/plugins/integration_test/ios"
+  metric_sdk:
+    :path: ".symlinks/plugins/metric_sdk/ios"
+
+SPEC CHECKSUMS:
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  integration_test: 252f60fa39af5e17c3aa9899d35d908a0721b573
+  iProov: f38fb1ffcb16f2705c9f20ccfe109f416c8856b0
+  metric_sdk: c8e596d75f417e0c9d708b2b6bf1faa8597578dc
+  MetricSDK: 70732d9c9763c181df928b38222f14f0e3f638db
+  OpenSSL-Universal: ca89c20240633a77c776082ba76b7d90f992bf77
+  OZLivenessSDK: 7e74a9582d8970c5f766f1072ec609d1a0800f35
+  TensorFlowLiteC: 8a8cb6fa20ad74dff29b5e490d02c36a14d48148
+
+PODFILE CHECKSUM: a57f30d18f102dd3ce366b1d62a55ecbef2158e5
+
+COCOAPODS: 1.15.2

@@ -19,14 +19,24 @@ class MethodChannelMetricSdk extends MetricSdkPlatform {
   }
 
   @override
-  void initializeSdk(SdkSettings settings) {
-    methodChannel.invokeMethod('initializeSdk', <String, dynamic>{
-      'appName': settings.appTheme.appName,
-      'logo': settings.appTheme.logoUrl,
-      'primaryColor': settings.appTheme.primaryColor.value,
-      'secretKey': settings.authenticator.secretKey,
-      'clientKey': settings.authenticator.clientKey,
-      'environment': settings.environment.name,
-    });
+  Future<String?> initializeSdk(SdkSettings settings) async {
+    try {
+      var argsMap = settings.map;
+
+      argsMap["appName"] = settings.appTheme.appName;
+      argsMap["brandLogoUrl"] = settings.appTheme.brandLogoUrl;
+      argsMap["brandPrimaryColor"] = settings.appTheme.brandPrimaryColor;
+      argsMap["secretKey"] = settings.authenticator.secretKey;
+      argsMap["clientKey"] = settings.authenticator.clientKey;
+      argsMap["environment"] = settings.environment.name;
+
+      return await methodChannel.invokeMethod('initializeSdk', argsMap);
+    }
+    on PlatformException catch(e) {
+      if (kDebugMode) {
+        print("[Method Channel]: Failed to initialize SDK: '${e.message}'.");
+      }
+    }
+    return null;
   }
 }

@@ -13,8 +13,9 @@ class MockMetricSdkPlatform
   Future<String?> getPlatformVersion() => Future.value('42');*/
 
   @override
-  void initializeSdk(SdkSettings settings) {
+  Future<String?> initializeSdk(SdkSettings settings) {
     // TODO: implement initializeSdk
+    throw UnimplementedError();
   }
 
   @override
@@ -30,12 +31,4 @@ void main() {
   test('$MethodChannelMetricSdk is the default instance', () {
     expect(initialPlatform, isInstanceOf<MethodChannelMetricSdk>());
   });
-
-  /*test('getPlatformVersion', () async {
-    MetricSdk metricSdkPlugin = MetricSdk();
-    MockMetricSdkPlatform fakePlatform = MockMetricSdkPlatform();
-    MetricSdkPlatform.instance = fakePlatform;
-
-    expect(await metricSdkPlugin.getPlatformVersion(), '42');
-  });*/
 }

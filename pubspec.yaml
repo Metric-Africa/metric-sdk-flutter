@@ -1,7 +1,7 @@
 name: metric_sdk
 description: "Metric flutter sdk."
 version: 0.0.1
-homepage:
+homepage: "https://github.com/Metric-Africa/metric-sdk-flutter"
 
 environment:
   sdk: '>=3.4.4 <4.0.0'
@@ -41,16 +41,7 @@ flutter:
         package: com.metric.metric_sdk
         pluginClass: MetricSdkPlugin
       ios:
-        pluginClass: MetricSdkPlugin
-      linux:
-        pluginClass: MetricSdkPlugin
-      macos:
-        pluginClass: MetricSdkPlugin
-      windows:
-        pluginClass: MetricSdkPluginCApi
-      web:
-        pluginClass: MetricSdkWeb
-        fileName: metric_sdk_web.dart
+        pluginClass: FlutterMetricSdkBridgePlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
