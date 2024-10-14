@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
   // Initialize metric SDK once
   void initMetricSdk() async {
     try {
-      final response =  await FlutterMetricSdkBridge.initMetricSdk(
+      final response =  await MetricSdk.initMetricSdk(
         SdkSettings(
             appTheme: AppTheme(
                 appName: "Metric Plugin Example App",
@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
 
   // Trigger metric sdk using token
   _launchMetricSdk() async {
-    String outcome = await FlutterMetricSdkBridge.launchSdk("Token here...");
+    String outcome = await MetricSdk.launchSdk("Token here...");
 
     if (!mounted) return;
     setState(() {

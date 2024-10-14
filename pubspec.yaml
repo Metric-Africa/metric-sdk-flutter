@@ -41,7 +41,7 @@ flutter:
         package: com.metric.metric_sdk
         pluginClass: MetricSdkPlugin
       ios:
-        pluginClass: FlutterMetricSdkBridgePlugin
+        pluginClass: MetricSdkPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

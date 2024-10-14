@@ -1,4 +1,4 @@
-#import "FlutterMetricSdkBridgePlugin.h"
+#import "MetricSdkPlugin.h"
 
 // checks if this file exists as it contains actual implementation of plugin logic with swift code
 #if __has_include(<metric_sdk/metric_sdk-Swift.h>)
@@ -14,8 +14,8 @@
 
 // Swift static libraries don't automatically copy their generated Objective-C header
 
-@implementation FlutterMetricSdkBridgePlugin
+@implementation MetricSdkPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
-    [SwiftFlutterMetricSdkBridgePlugin registerWithRegistrar:registrar];
+    [SwiftMetricSdkPlugin registerWithRegistrar:registrar];
 }
 @end

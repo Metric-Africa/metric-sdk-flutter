@@ -2,18 +2,17 @@ import Flutter;
 import UIKit;
 import MetricSDK;
 
-public class SwiftFlutterMetricSdkBridgePlugin: NSObject, FlutterPlugin {
+public class SwiftMetricSdkPlugin: NSObject, FlutterPlugin {
     
   public static func register(with registrar: FlutterPluginRegistrar) {
       let channel = FlutterMethodChannel(name: "metric_sdk", binaryMessenger: registrar.messenger())
-      let instance = SwiftFlutterMetricSdkBridgePlugin()
+      let instance = SwiftMetricSdkPlugin()
       registrar.addMethodCallDelegate(instance, channel: channel)
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     let args: [String : Any] = call.arguments as? [String : Any] ?? [String : Any]()
 
-    print(args)
     switch call.method {
       case "initializeSdk":
         initializeSDK(args: args, result: result)
