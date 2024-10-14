@@ -35,8 +35,8 @@ class _MyAppState extends State<MyApp> {
                 brandPrimaryColor: "#007AFF"
             ),
             authenticator: ClientAuthenticator(
-                secretKey: "2ykkOj4SqMQJDDgNz6UO",
-                clientKey: "ewtGzevNi8Pck6X9FrQvjWcXymBhneO8ESJns9l7VKPjC"
+                secretKey: "Secret key here...",
+                clientKey: "Client key here..."
             ),
             environment: Environment.dev
         ));
@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
 
   // Trigger metric sdk using token
   _launchMetricSdk() async {
-    String outcome = await FlutterMetricSdkBridge.launchSdk("LPO3G6XLU");
+    String outcome = await FlutterMetricSdkBridge.launchSdk("Token here...");
 
     if (!mounted) return;
     setState(() {
