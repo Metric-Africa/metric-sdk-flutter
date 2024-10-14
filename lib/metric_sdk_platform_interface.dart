@@ -28,5 +28,7 @@ abstract class MetricSdkPlatform extends PlatformInterface {
     throw UnimplementedError('launchSdk() has not been implemented.');
   }
 
-  void initializeSdk(SdkSettings settings);
+  Future<String?> initializeSdk(SdkSettings settings){
+     throw UnimplementedError('initializeSdk() has not been implemented.');
+  }
 }

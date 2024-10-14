@@ -1,6 +1,5 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
-
 import 'package:flutter/services.dart';
 import 'package:metric_sdk/metric_sdk.dart';
 import 'package:metric_sdk/models/models.dart';
@@ -19,8 +18,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   String _sdkResult = "Uninitialized";
 
-  final _metricSdkPlugin = MetricSdk();
-
   @override
   void initState() {
     super.initState();
@@ -28,30 +25,39 @@ class _MyAppState extends State<MyApp> {
   }
 
   // Initialize metric SDK once
-  void initMetricSdk() {
-    _metricSdkPlugin.initMetricSdk(
+  void initMetricSdk() async {
+    try {
+      final response =  await MetricSdk.initMetricSdk(
         SdkSettings(
             appTheme: AppTheme(
-                appName: "appName",
-                logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1280px-Google_2015_logo.svg.png",
-                primaryColor: Colors.lightBlue
+                appName: "Metric Plugin Example App",
+                brandLogoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1280px-Google_2015_logo.svg.png",
+                brandPrimaryColor: "#007AFF"
             ),
             authenticator: ClientAuthenticator(
                 secretKey: "Secret key here...",
                 clientKey: "Client key here..."
             ),
             environment: Environment.dev
-        )
-    );
+        ));
+      if (kDebugMode) {
+        print("[App]: '$response'");
+      }
+    }
+    on PlatformException catch (e) {
+      if (kDebugMode) {
+        print("[App]: Failed to initialize SDK: '${e.message}'.");
+      }
+    }
   }
 
   // Trigger metric sdk using token
   _launchMetricSdk() async {
-    String outcome = await _metricSdkPlugin.launchSdk("LPO3G6XLU");
+    String outcome = await MetricSdk.launchSdk("Token here...");
 
     if (!mounted) return;
     setState(() {
-      _sdkResult = outcome;
+      _sdkResult = outcome.isEmpty ? "success" : outcome;
     });
   }
 
